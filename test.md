@@ -6,3 +6,6 @@ normal
 Esto es otra linea
 
 Esta palabra esta en **negritas**
+
+![](Logo-urjc.png)
+
