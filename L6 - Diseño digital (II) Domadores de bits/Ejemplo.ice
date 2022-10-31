@@ -26,8 +26,8 @@
             ]
           },
           "position": {
-            "x": 280,
-            "y": -48
+            "x": 528,
+            "y": 96
           }
         },
         {
@@ -45,32 +45,16 @@
             ]
           },
           "position": {
-            "x": 280,
-            "y": 24
-          }
-        },
-        {
-          "id": "a538a5b4-d5d5-4ace-a593-efb1fa9b930c",
-          "type": "basic.info",
-          "data": {
-            "info": "Turn on a LED",
-            "readonly": true
-          },
-          "position": {
-            "x": 24,
-            "y": -88
-          },
-          "size": {
-            "width": 128,
-            "height": 32
+            "x": 528,
+            "y": 168
           }
         },
         {
           "id": "ab6b5949-902f-4da2-98cc-f3c5efeb3ed2",
           "type": "febcfed8636b8ee9a98750b96ed9e53a165dd4a8",
           "position": {
-            "x": 24,
-            "y": -48
+            "x": 272,
+            "y": 96
           },
           "size": {
             "width": 96,
@@ -81,12 +65,28 @@
           "id": "268721a9-157a-4608-a063-8f563691b194",
           "type": "febcfed8636b8ee9a98750b96ed9e53a165dd4a8",
           "position": {
-            "x": 24,
-            "y": 24
+            "x": 272,
+            "y": 168
           },
           "size": {
             "width": 96,
             "height": 64
+          }
+        },
+        {
+          "id": "4c20e823-a57d-4138-bf69-6c5693261107",
+          "type": "basic.info",
+          "data": {
+            "info": "## Mi primero circuito\n\nEncendemos el LED0 y LED7\n\n!()[https://github.com/WalterHumphrey/Mecatronica-2022-2023/blob/main/L6%20-%20Dise%C3%B1o%20digital%20(II)%20Domadores%20de%20bits/fpgaEjemplo.png]\n",
+            "readonly": false
+          },
+          "position": {
+            "x": -1168,
+            "y": -496
+          },
+          "size": {
+            "width": 2432,
+            "height": 1512
           }
         }
       ],
@@ -102,8 +102,8 @@
           },
           "vertices": [
             {
-              "x": 184,
-              "y": -16
+              "x": 432,
+              "y": 128
             }
           ]
         },
