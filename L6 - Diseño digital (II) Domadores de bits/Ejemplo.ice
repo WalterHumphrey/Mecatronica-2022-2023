@@ -77,16 +77,16 @@
           "id": "4c20e823-a57d-4138-bf69-6c5693261107",
           "type": "basic.info",
           "data": {
-            "info": "## Mi primero circuito\n\nEncendemos el LED0 y LED7\n\n!()[https://github.com/WalterHumphrey/Mecatronica-2022-2023/blob/main/L6%20-%20Dise%C3%B1o%20digital%20(II)%20Domadores%20de%20bits/fpgaEjemplo.png]\n",
-            "readonly": false
+            "info": "## Mi primero circuito\n\nEncendemos el LED0 y LED7\n\n![](https://i.imgur.com/vBNVv7m.png)\n",
+            "readonly": true
           },
           "position": {
-            "x": -1168,
-            "y": -496
+            "x": -320,
+            "y": -280
           },
           "size": {
-            "width": 2432,
-            "height": 1512
+            "width": 1288,
+            "height": 800
           }
         }
       ],
