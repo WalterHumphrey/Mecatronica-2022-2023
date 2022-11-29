@@ -1,60 +1,80 @@
 #include <AFMotor.h>
-//#define x A0
-//#define y A1
 #define Speed 180
+#include<Servo.h>
 
-AF_DCMotor motor1(3);
-AF_DCMotor motor2(4);
+Servo Myservo;
+AF_DCMotor motor1(1);
+AF_DCMotor motor2(2);
 
-const int buttonPin = 2;
-const int buttonPin2 = 3;
-const int buzzer = 4;
+const int buttonPinUP = A0;
+const int buttonPinDOWN = A1;
+const int buttonPinLEFT = A2;
+const int buttonPinRIGHT = A3;
+const int buttonPinGRP = A4;
+const int buzzer = A5; 
 
-int buttonState = 0;
-int buttonState2 = 0;
+int buttonStateUP = 0;
+int buttonStateDOWN = 0;
+int buttonStateLEFT = 0;
+int buttonStateRIGHT = 0;
+int buttonStateGRP = 0;
+
+bool encendido = false;
 
 void setup() {
   Serial.begin(9600);
   motor1.setSpeed(Speed);
   motor2.setSpeed(Speed);
-  pinMode(buttonPin, INPUT_PULLUP);
-  pinMode(buttonPin2, INPUT_PULLUP);
+  pinMode(buttonPinUP, INPUT_PULLUP);
+  pinMode(buttonPinDOWN, INPUT_PULLUP);
+  pinMode(buttonPinLEFT, INPUT_PULLUP);
+  pinMode(buttonPinRIGHT, INPUT_PULLUP);
   pinMode(buzzer, OUTPUT);
+  pinMode(buttonPinGRP, INPUT_PULLUP);
+  Myservo.attach(9);
 }
 
 void loop() {
-  //int X = analogRead(x);
-  //int Y = analogRead(y);
-
-  buttonState = digitalRead(buttonPin);
-  buttonState2 = digitalRead(buttonPin2);
-
-  //Serial.print(X);
-  //Serial.print("\t");
-  //Serial.println(Y);
-
-  //if (X >= 800) {
-  if (buttonState == LOW){
+  buttonStateUP = digitalRead(buttonPinUP);
+  buttonStateDOWN = digitalRead(buttonPinDOWN);
+  buttonStateLEFT = digitalRead(buttonPinLEFT);
+  buttonStateRIGHT = digitalRead(buttonPinRIGHT);
+  buttonStateGRP = digitalRead(buttonPinGRP);
+  
+  if (buttonStateUP == LOW){
+    motor1.run(FORWARD);
+    motor2.run(FORWARD);
+    Serial.println("Adelante");
+  } else if (buttonStateDOWN == LOW) {
     motor1.run(BACKWARD);
     motor2.run(BACKWARD);
     Serial.println("Atras");
     digitalWrite(buzzer, HIGH);
-    Serial.print(digitalRead(buzzer));
-  //} else if (X <= 200) {
-  } else if (buttonState2 == LOW) {
-    motor1.run(FORWARD);
-    motor2.run(FORWARD);
-    Serial.println("Adelante");
-  /*} else if (Y >= 800) {
+  } else if (buttonStateLEFT == LOW) {
     motor1.run(FORWARD);
     motor2.run(BACKWARD);
-  } else if (Y <= 200) {
+    Serial.println("Izquierda");
+  } else if (buttonStateRIGHT == LOW) {
     motor1.run(BACKWARD);
-    motor2.run(FORWARD);*/
+    motor2.run(FORWARD);
+    Serial.println("Derecha");
   } else {
     Serial.println("Stop");
     digitalWrite(buzzer, LOW);
     motor1.run(RELEASE);
     motor2.run(RELEASE);
+  }
+  if (buttonStateGRP == LOW) {
+    encendido = !encendido;
+    if (encendido == true) {
+      Myservo.write(180);
+      Serial.println(encendido);
+    } else if (encendido == false){
+      Myservo.write(90);
+      Serial.println(encendido);
+    }
+    delay(300);         //rebote al presionar
+    while(buttonStateGRP == HIGH); //esperar a soltar boton 
+    delay(100);
   }
 }
