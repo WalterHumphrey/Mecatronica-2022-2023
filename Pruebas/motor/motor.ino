@@ -4,8 +4,8 @@
 #define Speed 200 // Definimos velocidad de motores
 
 Servo Myservo;  // Definimos servomotor
-AF_DCMotor motor1(3); // Definimos motor 1
-AF_DCMotor motor2(4); // Definimos motor 2
+AF_DCMotor motor1(1); // Definimos motor 1
+AF_DCMotor motor2(2); // Definimos motor 2
 
 // Definimos los pines de nuestros botones y la señal del buzzer
 const int buttonPinUP = A0;
@@ -21,7 +21,7 @@ int buttonStateDOWN = 0;
 int buttonStateLEFT = 0;
 int buttonStateRIGHT = 0;
 int buttonStateGRP = 0;
-
+ 
 // Variable para controlar el estado de la garra
 bool encendido = false;
 
@@ -62,12 +62,12 @@ void loop() {
     Serial.println("Atras");
     digitalWrite(buzzer, HIGH); // Encendemos la señal del buzzer
   } else if (buttonStateLEFT == LOW) {  // Movimiento a la izquierda
-    motor1.run(FORWARD);
-    motor2.run(BACKWARD);
-    Serial.println("Izquierda");
-  } else if (buttonStateRIGHT == LOW) { // Movimiento a la derecha
     motor1.run(BACKWARD);
     motor2.run(FORWARD);
+    Serial.println("Izquierda");
+  } else if (buttonStateRIGHT == LOW) { // Movimiento a la derecha
+    motor1.run(FORWARD);
+    motor2.run(BACKWARD);
     Serial.println("Derecha");
   } else {  // Si no se presiona ningun boton el robot se detiene
     Serial.println("Stop");
